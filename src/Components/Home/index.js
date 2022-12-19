@@ -8,8 +8,7 @@ function Home() {
     const getLinks = async () => {
 
         const galleries = await services.getGalleries();
-        debugger;
-        setGalleries(galleries);
+       setGalleries(galleries);
     }
 
     const handleClick = function () {
@@ -25,7 +24,7 @@ function Home() {
              <div>{galleries && galleries.map(x => {
                 return (
                     <div>
-                        <p>{x.name}</p>
+                        <a href={"Gallery/"+x.name}>{x.name}</a>
                     </div>
                 )
             })}</div> 

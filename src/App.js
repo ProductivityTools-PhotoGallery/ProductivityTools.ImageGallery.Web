@@ -1,13 +1,19 @@
 import './App.css';
 import Gallery from './Components/Gallery'
 import Home from './Components/Home'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 
 
 function App() {
   return (
     <div className="App">
-      {/* <Gallery></Gallery> */}
-      <Home></Home>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/Gallery/:name' element={<Gallery />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

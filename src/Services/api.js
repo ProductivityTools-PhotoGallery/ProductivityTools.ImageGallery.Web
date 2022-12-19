@@ -6,14 +6,21 @@ async function getDate() {
     return response.data;
 }
 
-async function getGalleries(){
+async function getGalleries() {
     const response = await axios.get(`${config.PATH_BASE}/Gallery/List`)
     return response.data;
 }
 
-const services={
+async function getImageUrls(galleryName) {
+    const response = await axios.get(`${config.PATH_BASE}/Gallery/Get?Name=` + galleryName)
+    return response.data;
+
+}
+
+const services = {
     getDate,
-    getGalleries
-} 
+    getGalleries,
+    getImageUrls
+}
 
 export default services;

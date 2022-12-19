@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ImageGallery from 'react-image-gallery';
+import { useParams } from 'react-router-dom';
+import services from '../../Services/api';
 
 const images = [
     {
@@ -17,31 +19,45 @@ const images = [
 ];
 
 function Gallery() {
-
+    const { name } = useParams();
     const [serverImages, setserverImages] = useState([]);
 
-    const getLinks = () => {
-
-        let x= window.innerHeight;
-        console.log(x);
-        console.log("get from endpoint");
-        fetch(`https://localhost:5001/api/Images/List?height=`+x, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then(response => response.json())
-            .then(result => setserverImages(result));
-    }
-
-    const handleClick=function(){
-        debugger;
+    useEffect(() => {
+        const getLinks = async () => {
+            let data = await services.getImageUrls(name);
+            console.log(data);
+            setserverImages(data);
+        }
         getLinks();
-    }
+    }, [name])
+    // const getLinks = () => {
+
+    //     let x = window.innerHeight;
+    //     console.log(x);
+    //     console.log("get from endpoint");
+    //     fetch(`https://localhost:5001/api/Images/List?height=` + x, {
+    //         method: 'GET',
+    //         headers: { 'Content-Type': 'application/json' }
+    //     })
+    //         .then(response => response.json())
+    //         .then(result => setserverImages(result));
+    // }
+
+
 
     return (
         <div>
-            <button onClick={handleClick}>zrob</button>
-            <ImageGallery items={serverImages} />
+            {/* <button onClick={handleClick}>zrob</button>
+            <ImageGallery items={serverImages} /> */}
+            <p>galeria:</p>
+            <p>{name}</p>
+            <div>
+                {serverImages  && serverImages?.map(x=>{
+                    return (
+                        <p>{x.original}</p>
+                    )
+                })}
+            </div>
         </div>
 
     )
