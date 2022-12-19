@@ -1,13 +1,13 @@
 import './App.css';
 import Gallery from './Components/Gallery'
-import ManualGallery from './Components/ManualGallery'
+import Home from './Components/Home'
 
 
 function App() {
   return (
     <div className="App">
       {/* <Gallery></Gallery> */}
-      <ManualGallery></ManualGallery>
+      <Home></Home>
     </div>
   );
 }
