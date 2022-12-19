@@ -3,30 +3,32 @@ import services from '../../Services/api';
 
 
 function Home() {
-    const [Home, setGalleries] = useState([]);
+    const [galleries, setGalleries] = useState([]);
 
-    const getLinks = () => {
+    const getLinks = async () => {
 
-        const galleries = services.getGalleries();
+        const galleries = await services.getGalleries();
+        debugger;
         setGalleries(galleries);
     }
 
     const handleClick = function () {
-        debugger;
+
         getLinks();
+        
 
     }
 
     return (
         <div>ManualGallery
             <button onClick={handleClick}>zrob</button>
-            <div>{Home && Home.map(x => {
+             <div>{galleries && galleries.map(x => {
                 return (
                     <div>
-                        <p>{x}</p>
+                        <p>{x.name}</p>
                     </div>
                 )
-            })}</div>
+            })}</div> 
         </div>
     )
 }

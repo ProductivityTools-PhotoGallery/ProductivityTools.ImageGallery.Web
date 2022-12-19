@@ -7,7 +7,7 @@ async function getDate() {
 }
 
 async function getGalleries(){
-    const response = await axios.get(`${config.PATH_BASE}/Date`)
+    const response = await axios.get(`${config.PATH_BASE}/Gallery/List`)
     return response.data;
 }
 
