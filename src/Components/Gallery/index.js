@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ImageGallery from 'react-image-gallery';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import services from '../../Services/api';
+import ImageGrid from './imageGrid';
 
 const images = [
     {
@@ -50,14 +51,9 @@ function Gallery() {
             {/* <button onClick={handleClick}>zrob</button>
             <ImageGallery items={serverImages} /> */}
             <p>galeria:</p>
+            <Link to="/">Home</Link>
             <p>{name}</p>
-            <div>
-                {serverImages  && serverImages?.map(x=>{
-                    return (
-                        <p>{x.original}</p>
-                    )
-                })}
-            </div>
+            <ImageGrid serverImages={serverImages} />
         </div>
 
     )
