@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import ImageGallery from 'react-image-gallery';
 import { Link, useParams } from 'react-router-dom';
 import services from '../../Services/api';
 import ImageGrid from './imageGrid';
+import PhotoGallery from './photoGallery';
 
 const images = [
     {
@@ -22,6 +22,7 @@ const images = [
 function Gallery() {
     const { name } = useParams();
     const [serverImages, setserverImages] = useState([]);
+    const [imageGaleryPhotos, setImageGaleryPhotos] = useState([])
 
     useEffect(() => {
         const getLinks = async () => {
@@ -31,19 +32,16 @@ function Gallery() {
         }
         getLinks();
     }, [name])
-    // const getLinks = () => {
 
-    //     let x = window.innerHeight;
-    //     console.log(x);
-    //     console.log("get from endpoint");
-    //     fetch(`https://localhost:5001/api/Images/List?height=` + x, {
-    //         method: 'GET',
-    //         headers: { 'Content-Type': 'application/json' }
-    //     })
-    //         .then(response => response.json())
-    //         .then(result => setserverImages(result));
-    // }
+    useEffect(()=>{
+        var result = [];
+        serverImages.forEach(x => {
+            result.push({ src: x.original, width: x.width, height: x.height });
 
+        })
+        console.log(result)
+        setImageGaleryPhotos(result);
+    },[serverImages])
 
 
     return (
@@ -53,7 +51,8 @@ function Gallery() {
             <p>galeria:</p>
             <Link to="/">Home</Link>
             <p>{name}</p>
-            <ImageGrid serverImages={serverImages} />
+            {/* <ImageGrid serverImages={serverImages} /> */}
+            <PhotoGallery photos={imageGaleryPhotos}></PhotoGallery>
         </div>
 
     )
