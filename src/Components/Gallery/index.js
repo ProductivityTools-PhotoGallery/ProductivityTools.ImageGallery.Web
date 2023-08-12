@@ -40,7 +40,7 @@ function Gallery() {
 
         })
         console.log(result)
-        setImageGaleryPhotos(result);
+        setImageGaleryPhotos(serverImages);
     },[serverImages])
 
 
