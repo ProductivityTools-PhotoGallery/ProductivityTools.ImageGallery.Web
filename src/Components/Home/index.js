@@ -20,8 +20,8 @@ function Home() {
         <div>ManualGallery
             <div>{galleries && galleries.map(x => {
                 return (
-                    <div>
-                        <a href={"Gallery/" + x.name}>{x.name}</a>
+                    <div key={x.name}>
+                        <a  href={"Gallery/" + x.name}>{x.name}</a>
                     </div>
                 )
             })}</div>
