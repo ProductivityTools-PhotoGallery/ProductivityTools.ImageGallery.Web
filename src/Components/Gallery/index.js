@@ -21,27 +21,17 @@ const images = [
 
 function Gallery() {
     const { name } = useParams();
-    const [serverImages, setserverImages] = useState([]);
     const [imageGaleryPhotos, setImageGaleryPhotos] = useState([])
 
     useEffect(() => {
-        const getLinks = async () => {
+        const getGaleryPhotos = async () => {
             let data = await services.getImageUrls(name);
+            console.log("image Gallery photos:");
             console.log(data);
-            setserverImages(data);
+            setImageGaleryPhotos(data);
         }
-        getLinks();
+        getGaleryPhotos();
     }, [name])
-
-    useEffect(()=>{
-        var result = [];
-        serverImages.forEach(x => {
-            result.push({ src: x.original, width: x.width, height: x.height });
-
-        })
-        console.log(result)
-        setImageGaleryPhotos(serverImages);
-    },[serverImages])
 
 
     return (

@@ -12,7 +12,7 @@ async function getGalleries() {
 }
 
 async function getImageUrls(galleryName) {
-    const response = await axios.get(`${config.PATH_BASE}/Gallery/Get?Name=` + galleryName+"&Height=1000")
+    const response = await axios.get(`${config.PATH_BASE}/Gallery/Get?Name=` + galleryName)
     return response.data;
 
 }
