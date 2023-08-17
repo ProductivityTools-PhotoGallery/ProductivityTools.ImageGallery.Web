@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-import { PhotoAlbum } from "react-photo-album";
+// import { PhotoAlbum } from "react-photo-album";
 
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
@@ -10,6 +10,7 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { Gallery } from "react-grid-gallery";
 
 function PhotoGallery({ photos }) {
   // const [currentImage, setCurrentImage] = useState(0);
@@ -25,8 +26,10 @@ function PhotoGallery({ photos }) {
   return (
     <div>
       <p>photogallery:</p>
-      <PhotoAlbum photo={photos} layout="rows"  />
+      {/* <PhotoAlbum photo={photos} layout="rows"  /> */}
+      <Gallery images={photos} />
       <p>photogallery end:</p>
+
       {/* <Lightbox
         slides={photos}
         open={index >= 0}

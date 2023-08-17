@@ -9122,6 +9122,11 @@ react-full-screen@^1.0.1:
   dependencies:
     fscreen "^1.0.2"
 
+react-grid-gallery@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-1.0.0.tgz#31604b9488dfa75a899aa39bc8884138f0409a12"
+  integrity sha512-S1gr6WXBlPFVrE0x2BHuu7jhyaB61mabcMQyx+8KCgAyKzGza0WF67AfAnS9Q00aurFEq4IP8eqb2Bk5F4RAmQ==
+
 react-images@^1.2.0-beta.7:
   version "1.2.0-beta.7"
   resolved "https://registry.yarnpkg.com/react-images/-/react-images-1.2.0-beta.7.tgz#8a5804f8a5d08a25e64180eecb43a77d4e023e16"
@@ -9165,11 +9170,6 @@ react-motion@^0.5.0:
     performance-now "^0.2.0"
     prop-types "^15.5.8"
     raf "^3.1.0"
-
-react-photo-album@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-photo-album/-/react-photo-album-2.2.2.tgz#fba27903ca183a8f5910b3fad99d57182599ea57"
-  integrity sha512-UYtfJCUBNgrXVG50tVzXYStOY/Tljqzo/tPFQqm/qldm6Vr2STrxEMfGdc+7KCpBK7X111Y8ceKEWNaS8T+oGA==
 
 react-property@2.0.0:
   version "2.0.0"
