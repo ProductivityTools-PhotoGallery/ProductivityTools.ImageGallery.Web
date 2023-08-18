@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import services from '../../Services/api';
-import ImageGrid from './imageGrid';
-import PhotoGallery from './photoGallery';
+// import ImageGrid from './imageGrid';
+// import PhotoGallery from './photoGallery';
+import { PhotoAlbum } from "react-photo-album";
 
 const images = [
     {
@@ -42,7 +43,7 @@ function Gallery() {
             <Link to="/">Home</Link>
             <p>{name}</p>
             {/* <ImageGrid serverImages={serverImages} /> */}
-            <PhotoGallery photos={imageGaleryPhotos}></PhotoGallery>
+            <PhotoAlbum layout="rows" photos={imageGaleryPhotos}  />
         </div>
 
     )
