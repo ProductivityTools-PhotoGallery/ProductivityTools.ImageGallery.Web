@@ -5,24 +5,23 @@ import services from '../../Services/api';
 // import PhotoGallery from './photoGallery';
 import { PhotoAlbum } from "react-photo-album";
 
-const images = [
-    {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1015/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-];
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+// import optional lightbox plugins
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+
 
 function Gallery() {
     const { name } = useParams();
     const [imageGaleryPhotos, setImageGaleryPhotos] = useState([])
+    const [index, setIndex] = useState(-1);
+
 
     useEffect(() => {
         const getGaleryPhotos = async () => {
@@ -43,7 +42,16 @@ function Gallery() {
             <Link to="/">Home</Link>
             <p>{name}</p>
             {/* <ImageGrid serverImages={serverImages} /> */}
-            <PhotoAlbum layout="rows" photos={imageGaleryPhotos}  />
+            <PhotoAlbum layout="rows" photos={imageGaleryPhotos}  targetRowHeight={150} onClick={({ index }) => setIndex(index)}  />
+            <Lightbox
+                slides={imageGaleryPhotos}
+                open={index >= 0}
+                index={index}
+                close={() => setIndex(-1)}
+                // enable optional lightbox plugins
+                plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+            />
+
         </div>
 
     )
