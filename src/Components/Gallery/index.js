@@ -35,14 +35,14 @@ function Gallery() {
 
 
     return (
-        <div>
+        <div width="100px">
             {/* <button onClick={handleClick}>zrob</button>
             <ImageGallery items={serverImages} /> */}
             <p>galeria:</p>
             <Link to="/">Home</Link>
             <p>{name}</p>
             {/* <ImageGrid serverImages={serverImages} /> */}
-            <PhotoAlbum layout="rows" photos={imageGaleryPhotos}  targetRowHeight={150} onClick={({ index }) => setIndex(index)}  />
+            <PhotoAlbum layout="rows" photos={imageGaleryPhotos}  targetRowHeight={150} onClick={({ index }) => setIndex(index)} spacing={1}  />
             <Lightbox
                 slides={imageGaleryPhotos}
                 open={index >= 0}
