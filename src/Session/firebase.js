@@ -35,4 +35,4 @@ const logout = () => {
   signOut(auth);
 };
 
-export { signInWithGoogle, signOut };
+export { signInWithGoogle, signOut,auth };
