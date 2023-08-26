@@ -11,6 +11,7 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { auth } from "../../Session/firebase";
 
 function Gallery() {
     const { name } = useParams();
@@ -23,6 +24,9 @@ function Gallery() {
             let data = await services.getImageUrls(name);
             console.log("image Gallery photos:");
             console.log(data);
+            console.log(auth);
+            // let dataWithAuth=data.map(x=>x+`&bearer=${auth.currentUser.accessToken}`)
+            // console.log(dataWithAuth);
             setImageGaleryPhotos(data);
         }
         getGaleryPhotos();
