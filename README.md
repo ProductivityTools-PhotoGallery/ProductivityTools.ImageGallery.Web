@@ -26,4 +26,9 @@ To run application go to http://localhost:3000/Login and provide your gmail acco
 
 ![](Images/2023-08-27-22-42-48.png)
 
-Clicking on gallery should load the pictures
+Clicking on gallery should load the pictures.
+
+The next step was to add bearer to the picture url param and validate on the server side.
+
+
+![](Images/2023-08-27-22-48-20.png)
